@@ -1,5 +1,5 @@
 import styles from './Description.module.css';
-const DescriptionTitle = () => {
+export default function DescriptionTitle() {
   return (
     <>
       <h1 className={styles.appName}>Sip Happens Café</h1>
@@ -9,5 +9,4 @@ const DescriptionTitle = () => {
       </p>
     </>
   );
-};
-export default DescriptionTitle;
+}

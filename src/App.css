@@ -4,7 +4,15 @@
   padding: 2rem;
   text-align: center;
 }
+.appName {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: bold;
+  font-size: 56px;
 
+}
+.appText {
+  font-size: 28px;
+}
 
 
 .card {
@@ -13,4 +21,13 @@
 
 .read-the-docs {
   color: #888;
+}
+.buttons {
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+margin: auto;
+gap: 5px;
+flex-wrap: wrap;
 }
