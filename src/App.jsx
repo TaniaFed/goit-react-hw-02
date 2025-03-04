@@ -38,30 +38,25 @@ export default function App() {
   };
 
   const totalFeedback = typeClicks.good + typeClicks.neutral + typeClicks.bad;
-
+  const positiveFeedback = Math.round((typeClicks.good / totalFeedback) * 100);
   return (
     <>
       <DescriptionTitle />
-      <div className="buttons">
-        <Options handleClick={() => updateFeedback('good')} reviewType="Good" />
-        <Options
-          handleClick={() => updateFeedback('neutral')}
-          reviewType="Neutral"
-        />
-        <Options handleClick={() => updateFeedback('bad')} reviewType="Bad" />
-
-        {totalFeedback > 0 && <button onClick={handleReset}>Reset</button>}
-      </div>
+      <Options
+        handleClickGood={() => updateFeedback('good')}
+        handleClickNeutral={() => updateFeedback('neutral')}
+        handleClickBad={() => updateFeedback('bad')}
+        totalFeedback={totalFeedback}
+        handleReset={handleReset}
+      />
       {totalFeedback > 0 ? (
         <>
-          <Feedback typeName="Good" clicks={typeClicks.good} />
-          <Feedback typeName="Neutral" clicks={typeClicks.neutral} />
-          <Feedback typeName="Bad" clicks={typeClicks.bad} />
-          <Feedback typeName="Total" clicks={totalFeedback} />
           <Feedback
-            typeName="Positive"
-            clicks={Math.round((typeClicks.good / totalFeedback) * 100)}
-            text="%"
+            clicksGood={typeClicks.good}
+            clicksNeutral={typeClicks.neutral}
+            clicksBad={typeClicks.bad}
+            clicksTotal={totalFeedback}
+            positiveFeedback={positiveFeedback}
           />
         </>
       ) : (
